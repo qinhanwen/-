@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        width: 150px;
+        height: 150px;
+        border:1px solid black;
+    }
+
+    li {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        background: red;
+        border: 1px solid #ddd;
+    }
+</style>
+
+<body>
+    <ul style="align-items: center">
+        <li>1</li>
+        <li>2</li>
+    </ul>
+
+    <ul style="align-content: center;flex-wrap: wrap">
+        <li style="margin-right: 120px">1</li>
+        <li>2</li>
+    </ul>
+</body>
+
+</html>

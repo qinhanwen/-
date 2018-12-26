@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .outer,.outer1 {
+        width: 200px;
+        height: 200px;
+        background: #ddd;
+        position: relative;
+    }
+
+    .inner,.inner1 {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -75px 0 0 -75px;
+        background: #eee;
+    }
+</style>
+
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+
+    <div class="outer1">
+        <div class="inner1"></div>
+    </div>
+</body>
+<script>
+    var outer = document.querySelector('.outer');
+    var inner = document.querySelector('.inner');
+    var outer1 = document.querySelector('.outer1');
+    var inner1 = document.querySelector('.inner1');
+
+    inner1.onclick = onClick;
+    outer1.onclick = onClick1;
+
+    function onClick() {
+        console.log('inner');
+    }
+    function onClick1() {
+        console.log('outer');
+    }
+
+    inner.addEventListener('click', onClick);
+    outer.addEventListener('click', onClick1);
+
+</script>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        width: 150px;
+        height: 150px;
+        border:1px solid black;
+    }
+
+    li {
+        width: 30px;
+        line-height: 30px;
+        text-align: center;
+        background: red;
+        border: 1px solid #ddd;
+    }
+        /*不设置li的高度*/
+</style>
+
+<body>
+    <ul style="align-items: flex-start">
+        <li>li first</li>
+        <li>li</li>
+        <li>li</li>
+        <li>li last</li>
+    </ul>
+
+    <ul style="align-items: flex-end">
+        <li>li first</li>
+        <li>li</li>
+        <li>li</li>
+        <li>li last</li>
+    </ul>
+
+    <ul style="align-items: center">
+        <li>li first</li>
+        <li>li</li>
+        <li>li</li>
+        <li>li last</li>
+    </ul>
+
+    <ul style="align-items: baseline">
+        <li>li first</li>
+        <li  style="margin-top:20px">li</li>
+        <li>li</li>
+        <li>li last</li>
+    </ul>
+
+    <ul >
+        <li>li first</li>
+        <li>li</li>
+        <li>li</li>
+        <li>li last</li>
+    </ul>
+</body>
+
+</html>

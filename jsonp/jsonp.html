@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="send()">send</button>
+
+</body>
+<script>
+    function jsonp(url, params, cb) {
+        return new Promise((resolve, reject) => {
+            if (typeof url !== "string" || typeof cb !== "function" || !(params instanceof Object)) {
+                reject('参数错误');
+                return;
+            }
+            let script = document.createElement('script');
+            let str = '';
+            const paramsArray = Object.keys(params);
+
+            if (paramsArray.length) {
+                paramsArray.forEach((item) => {
+                    str += `${item}=${params[item]}&`;
+                })
+            }
+            script.setAttribute('src', `${url}?${str}cb=${cb.name}`);
+            document.body.appendChild(script);
+            script.onload = () => {
+                resolve(script);
+            }
+            script.onerror = () => {
+                reject('错误');
+            }
+        })
+    }
+    //
+
+    function show(data) {
+        console.log(data);
+    }
+
+    function send() {
+        jsonp('http://127.0.0.1:3000/jsonp', { data: 1 }, show).then(function (script) {
+            console.log(1);
+            document.body.removeChild(script);
+        }).catch(err => {
+            console.log(err);
+        })
+    }
+    function jsonp1({ url, params, cb }) {
+        return new Promise((resolve, reject) => {
+            let script = document.createElement('script');
+            window[cb] = function (data) {
+                resolve(data);
+                document.body.removeChild(script);
+            }
+            params = { ...params, cb };
+            let arrs = [];
+            for (let key in params) {
+                arrs.push(`${key}=${params[key]}`);
+            }
+            script.src = `${url}?${arrs.join('&')}`;
+            document.body.appendChild(script);
+        })
+    }
+
+</script>
+
+</html>

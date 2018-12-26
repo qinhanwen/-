@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+img{
+    width: 200px;
+    height: 200px;
+}
+</style>
+<body>
+    <img id="img" src="./WX20181226-111401@2x.png" data-src="http://39.105.62.145/assets/images/WX20181225-202805@2x.png">
+    <img src="./WX20181226-111401@2x.png" data-src="http://39.105.62.145/assets/images/WX20181225-202805@2x.png">
+    <img src="./WX20181226-111401@2x.png" data-src="http://39.105.62.145/assets/images/WX20181225-202805@2x.png">
+    <img src="./WX20181226-111401@2x.png" data-src="http://39.105.62.145/assets/images/WX20181225-202805@2x.png">
+    <img src="./WX20181226-111401@2x.png" data-src="http://39.105.62.145/assets/images/WX20181225-202805@2x.png">
+</body>
+<script>
+window.onload = function(){
+    window.onscroll = function(){
+       var img = document.getElementById('img');
+       img.src = img.dataset.src;
+    //    console.log(img.src);
+    //    console.log(img.dataset.src);
+    }
+}
+</script>
+</html>

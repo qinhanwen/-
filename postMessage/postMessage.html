@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <iframe src="http://localhost:8001/postMessage/postMessage1.html" id="frame"></iframe>
+</body>
+<script>
+    window.onload = function () {
+        const frame = document.getElementById('frame');
+        frame.contentWindow.postMessage('qinhanwen', 'http://localhost:8001');
+        //新增的部分
+        window.onmessage = function (e) {
+            console.log(e.data);
+        }
+        //
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        width: 400px;
+        height: 200px;
+        border: 1px solid black;
+    }
+
+    li {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        background: red;
+        border: 1px solid #eee;
+    }
+</style>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+    </ul>
+    <ul>
+        <li style="flex-grow: 1">flex-grow: 1</li>
+        <li style="flex-grow: 1">flex-grow: 1</li>
+        <li style="flex-grow: 1">flex-grow: 1</li>
+    </ul>
+
+    <ul>
+        <li style="flex-grow: 1">flex-grow: 1</li>
+        <li style="flex-grow: 2">flex-grow: 2</li>
+        <li style="flex-grow: 1">flex-grow: 1</li>
+    </ul>
+
+</body>
+
+</html>

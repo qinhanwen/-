@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <iframe src="http://localhost:8001/windowname/name1.html" frameborder="0" onload="load()" id="frame"></iframe>
+</body>
+<script>
+    let first = true;
+    function load() {
+        const frame = document.getElementById('frame');
+        if (first) {
+            first = false;
+            frame.src = "http://localhost:8000/windowname/name2.html";
+        }else{
+            console.log(frame.contentWindow.name);
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<script>
+    function postError({ msg, url, line, col, error }) {
+        var xml = new XMLHttpRequest();
+        xml.onreadystatechange = function () {
+            if (xml.readyState == 4) {
+                if (xml.status == 200) {
+                    console.log(xml.response);
+                }
+            }
+        }
+        xml.open('POST', 'http://localhost:8001/error', true);
+        xml.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xml.send(`msg=${msg}, url=${url}, line=${line}, col=${col}, error=${error} `);
+    }
+</script>
+
+<script>
+    window.onerror = function (msg, url, line, col, error) {
+        postError({ msg, url, line, col, error });
+    }
+</script>
+<script src="http://localhost:8001/error.js" type="text/javascript" crossOrigin></script>
+
+<body>
+</body>
+
+</html>
