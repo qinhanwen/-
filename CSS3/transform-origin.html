@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .outer {
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+        position: relative;
+        float: left;
+        margin: 80px 40px;
+    }
+
+    .inner {
+        width: 200px;
+        height: 200px;
+        background: black;
+        position: absolute;
+        transform-origin: left;
+    }    
+    .inner1 {
+        transform: scale(0.5, 0.5);
+    }
+
+    .inner2 {
+        transform: rotate(45deg);
+    }
+
+    .inner3 {
+        transform: translate(25%, 25%);
+    }
+/*用于比较*/
+    .compare-inner {
+        width: 200px;
+        height: 200px;
+        background: black;
+        position: absolute;
+    }
+
+</style>
+
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+    <div class="outer">
+        <div class="inner inner1"></div>
+    </div>
+    <div class="outer">
+        <div class="inner inner2"></div>
+    </div>
+    <div class="outer">
+        <div class="inner inner3"></div>
+    </div>
+
+    <div class="outer">
+        <div class="compare-inner"></div>
+    </div>
+    <div class="outer">
+        <div class="compare-inner inner1"></div>
+    </div>
+    <div class="outer">
+        <div class="compare-inner inner2"></div>
+    </div>
+    <div class="outer">
+        <div class="compare-inner inner3"></div>
+    </div>
+</body>
+
+</html>

@@ -29,7 +29,7 @@
         var imgList = document.querySelectorAll('.img');
         var len = imgList.length;
         window.onscroll = function () {
-            lazyLoad();
+            loadImg();
         }
         function lazyLoad() {
             for (var i = 0; i < len; i++) {
@@ -38,6 +38,16 @@
                 }
             }
         }
+        function debounce(fn, delay) {
+            var id;
+            return function () {
+                clearTimeout(id);
+                id = setTimeout(function () {
+                    fn();
+                }, delay)
+            }
+        }
+        var loadImg = debounce(lazyLoad, 5000);
         lazyLoad();
     }
 </script>

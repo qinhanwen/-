@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./test.css">
     <title>Document</title>
 </head>
+
 <body>
-    <p>sasd
-        <script>
-            var p = document.getElementsByTagName('p')[0];
-            p.style.color = 'red';
-        </script>
-        asdd
-    </p>
+    <a href="www.baidu.com" id="a">baidu</a>
 </body>
+<script>
+    var a = document.getElementById('a');
+    a.addEventListener('click', function (e) {
+        e.preventDefault();
+    })
+</script>
+
 </html>

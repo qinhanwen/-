@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="myDiv">
+        <button id="myAnchor">
+            捕获阶段之后输出
+        </button>
+    </div>
+</body>
+<script>
+    var button = document.getElementById('myAnchor');
+    var div = document.getElementById('myDiv');
+    div.addEventListener('click', function(e) {
+        console.log(e.currentTarget)
+    }, true);
+    button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        console.log(e.currentTarget)
+    }, true);
+</script>
+
+</html>

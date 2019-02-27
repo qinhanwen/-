@@ -29,7 +29,7 @@
         var imgList = document.querySelectorAll('.img');
         var len = imgList.length;
         window.onscroll = function () {
-            lazyLoad();
+            loadImg();
         }
         function lazyLoad() {
             for (var i = 0; i < len; i++) {
@@ -38,6 +38,17 @@
                 }
             }
         }
+
+        function throttle(fn, delay) {
+            var date = +new Date();
+            return function () {
+                if (+new Date() - date > delay) {
+                    date = +new Date();
+                    fn();
+                }
+            }
+        }
+        var loadImg = throttle(lazyLoad, 5000);
         lazyLoad();
     }
 </script>

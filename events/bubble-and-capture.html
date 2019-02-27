@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">点击</button>
+</body>
+<script>
+    var button = document.getElementById('button');
+    button.onclick = function(){
+        console.log('DOM1事件')
+    }
+    button.addEventListener('click',function(){
+        console.log('bubble');
+    },false);
+    button.addEventListener('click',function(){
+        console.log('capture');
+    },true);
+</script>
+</html>

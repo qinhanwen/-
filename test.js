@@ -1,13 +1,10 @@
-alert('start')
+function getFood(){
+    console.log(this.food)
+}
+var cat = {
+    food:'fish'
+}
 
-setTimeout( function () {
-  alert('setTimeout')
-}, 0 )
-
-Promise.resolve().then(function() {
-  alert('promise1');
-}).then(function() {
-  alert('promise2');
-});
-
-alert('end')
+var getFood1 = getFood.bind();
+getFood1();//fish
+console.log(cat);//{ food: 'fish' }

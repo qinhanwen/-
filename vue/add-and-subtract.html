@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+</head>
+
+<body>
+    <p id="app">
+        <button @click="add()">+</button>
+        <span>{{number}}</span>
+        <button @click="subtract()">-</button>
+    </p>
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            number: 0,
+        },
+        methods: {
+            add: function () {
+                this.number++;
+            },
+            subtract: function () {
+                this.number--;
+            }
+        }
+    })
+</script>
+
+</html>

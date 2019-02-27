@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="myDiv">
+        <a id="myAnchor" href="https://qinhanwen.github.io/">qinhanwen!
+        </a>
+    </div>
+</body>
+<script>
+    var html = document.documentElement;
+    var body = document.body;
+    var div = document.getElementById('myDiv');
+    var a = document.getElementById('myAnchor');
+
+    function handles(e) {
+        console.log(e.currentTarget);
+    }
+    html.addEventListener('click', handles, true);
+    body.addEventListener('click', handles, true);
+    div.addEventListener('click', handles, true);
+    a.addEventListener('click', handles, true);
+</script>
+
+</html>

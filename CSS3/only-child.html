@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./test.css">
     <title>Document</title>
 </head>
+<style>
+ul>li:only-child{
+    color: red;
+}
+</style>
 <body>
-    <p>sasd
-        <script>
-            var p = document.getElementsByTagName('p')[0];
-            p.style.color = 'red';
-        </script>
-        asdd
-    </p>
+    <ul>
+        <li>一个li</li>
+    </ul>
+    <ul>
+        <li>两个li</li>
+        <li>两个li</li>
+    </ul>
 </body>
+
 </html>

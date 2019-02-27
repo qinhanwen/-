@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>directive</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p v-if="needshow">v-if</p>
+        <p v-else>v-else</p>
+        <p v-show="!needshow">v-show</p>
+        <p v-html="rawhtml"></p>
+        <button v-bind:disabled="buttonDisabled"></button>
+        <button :disabled="buttonDisabled">:disabled</button>
+        <p v-bind:id="tag">tag</p>
+        <p v-on:click = "once='双向绑定'">v-on</p>
+        <p @click = "once='双向绑定'">v-on @click</p>
+        <p v-once>v-once {{once}}</p>
+        <p>v-once {{once}}</p>
+        <p>{{message}}</p>
+        <p>reverse message {{reverseMessage}}</p>
+    </div>
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+           needshow:false,
+           rawhtml:'<span style="color:red;">red</span>',
+           buttonDisabled:true,
+           tag:'p-tag',
+           once:'单向绑定',
+           message:'message'
+        },
+        computed:{
+            reverseMessage:function(){
+                return this.message.split('').reverse().join('');
+            }
+        }
+    })
+</script>
+
+</html>

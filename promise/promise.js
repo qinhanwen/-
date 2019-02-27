@@ -1,4 +1,4 @@
-function Promise(exector) {
+function Promise1(exector) {
     var self = this;
     self.status = 'pending';
     self.value = '';
@@ -10,8 +10,7 @@ function Promise(exector) {
         if (self.status == 'pending') {
             self.status = 'resolved';
             self.value = value;
-            console.log('resolved');
-            self.successCB.forEach(function(cb){
+            self.successCB.forEach(function (cb) {
                 cb();
             })
         }
@@ -21,8 +20,7 @@ function Promise(exector) {
         if (self.status == 'pending') {
             self.status = 'rejected';
             self.value = value;
-            console.log('rejected');
-            self.errorCB.forEach(function(cb){
+            self.errorCB.forEach(function (cb) {
                 cb();
             })
         }
@@ -30,40 +28,48 @@ function Promise(exector) {
     exector(resolve, reject);
 }
 
-Promise.prototype.then = function (onFulfilled, onRejected) {
+Promise1.prototype.then = function (onFulfilled, onRejected) {
     const self = this;
-    let promise2 = new Promise(function(resolve,reject){
-        if (this.status === 'resolved') {
-            console.log(this);
+    return new Promise1(function (resolve, reject) {
+        if (self.status == 'resolved') {
+            if (typeof onFulfilled == "function") {
+                resolve(onFulfilled(self.value));
+            } else {
+                resolve(self.value);
+            }
+        }
+
+        if (self.status == 'rejected') {
+            if (typeof onFulfilled == "function") {
+                reject(onRejected(self.value));
+            } else {
+                reject(self.value);
+            }
+        }
+
+        if (self.status == 'pending') {
+            self.successCB.push(function () {
+                if (typeof onFulfilled == "function") {
+                    resolve(onFulfilled(self.value));
+                } else {
+                    resolve(self.value);
+                }
+            })
+            self.errorCB.push(function () {
+                if (typeof onFulfilled == "function") {
+                    reject(onRejected(self.value));
+                } else {
+                    reject(self.value);
+                }
+            })
         }
     })
-    if (this.status == 'resolved') {
-        onFulfilled(self.value);
-    }
-
-    if (this.status == 'rejected') {
-        onRejected(self.value);
-    }
-
-    if (this.status == 'pending') {
-        this.successCB.push(function () {
-            onFulfilled(self.value);
-        })
-        this.errorCB.push(function () {
-            onRejected(self.value);
-        })
-    }
-    return promise2;
 }
-
-new Promise(function (resolve, reject) {
+new Promise1(function (resolve, reject) {
     console.log(1);
     setTimeout(function () {
         resolve('resolve');
     }, 2000);
 })
-.then(function (data) { console.log(data) }, function (err) { console.log(err) })
-// .then(function (data) { console.log(data) }, function (err) { console.log(err) });
-//打印出
-//1
-//resolved
+.then(function (data) { console.log(data);return '有返回值';})
+.then(function (data) { console.log(data);})
