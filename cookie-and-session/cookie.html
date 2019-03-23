@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="button">发送请求</button>
+    <button id="button1">携带cookie</button>
+    <!-- <a href="http://192.168.70.20:8003/cookie.html">http://192.168.0.101:8002/cookie.html</a> -->
+</body>
+<script>
+    var button = document.getElementById('button');
+    var button1 = document.getElementById('button1');
+    var xml = new XMLHttpRequest();
+    xml.onreadystatechange = function () {
+        if (xml.readyState === 4) {
+            if ((xml.status >= 200 && xml.status <= 300) || xml.status === 304) {
+                console.log('发送成功');
+            }
+        }
+    }
+    button.addEventListener('click', function (event) { 
+        xml.open('GET', 'http://localhost:3000/setCookie');
+        // xml.withCredentials = true;
+        xml.send();
+    })
+    button1.addEventListener('click', function (event) {
+        xml.open('POST', 'http://localhost:3000/getCookie');
+        // xml.withCredentials = true;
+        xml.send();
+    })
+</script>
+
+</html>
