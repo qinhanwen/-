@@ -1,0 +1,1 @@
+tsc  --outFile test.js test.ts && node test.js

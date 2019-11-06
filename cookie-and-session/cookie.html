@@ -26,12 +26,12 @@
     }
     button.addEventListener('click', function (event) { 
         xml.open('GET', 'http://localhost:3000/setCookie');
-        // xml.withCredentials = true;
+        xml.withCredentials = true;
         xml.send();
     })
     button1.addEventListener('click', function (event) {
-        xml.open('POST', 'http://localhost:3000/getCookie');
-        // xml.withCredentials = true;
+        xml.open('GET', 'http://localhost:3000/getCookie');
+        xml.withCredentials = true;
         xml.send();
     })
 </script>

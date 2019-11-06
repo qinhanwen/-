@@ -1,24 +1,17 @@
-const koa = require('koa');
-const app = new koa();
+const axios = require('axios');
 
-const Router = require('koa-router');
-const router = new Router();
-const ejs = require('ejs');
-const views = require('koa-views');
-const path = require('path');
+function send() {
+  var num =  '1' + Math.ceil( Math.random()*10000000000)
+  axios.get('http://mobsec-dianhua.baidu.com/dianhua_api/open/location?tel='+num).then((res) => {
+    console.log(res.data.response);
+  }, (err) => {
+    console.log(err);
+  }).catch(err => {
+    console.log(err);
+  })
+}
+for(var i=0;i<10000;i++){
+  send();
+}
 
 
-
-router.get('/index',async (ctx) => {
-    var url = decodeURIComponent(ctx.request.url);
-    var str = url.substr(url.indexOf('?')+1);
-    await ctx.render('index',{content: str});
-})
-
-app.use(views(path.join(__dirname, './views'), {
-    extension: 'ejs'
-}))
-app.use(router.routes());
-
-app.listen(3000);
-console.log('koa server is listening port 3000');

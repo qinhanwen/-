@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>nginx</div>
+    <button onclick="send()">send</button>
+</body>
+<script>
+    function send() {
+        fetch('http://192.168.0.103:8000/getData',{
+            method:'PUT',
+            headers:{
+                name:'qinhanwen'
+            }
+        }).then(result => {
+            return result.text()
+        }).then((text) => {
+            document.getElementsByTagName('div')[0].innerHTML = 'success';
+        })
+    }
+</script>
+
+</html>

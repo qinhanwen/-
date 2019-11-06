@@ -4,20 +4,33 @@
   "description": "",
   "main": "test.js",
   "dependencies": {
+    "axios": "^0.18.1",
+    "concat-files": "^0.1.1",
+    "graphql-yoga": "^1.17.4",
     "koa": "^2.6.2",
-    "koa-body": "^4.0.4",
+    "koa-body": "^4.1.1",
     "koa-bodyparser": "^4.2.1",
     "koa-cors": "^0.0.16",
+    "koa-jwt": "^3.6.0",
     "koa-router": "^7.4.0",
     "koa-serve-static": "^1.0.0",
     "koa-static": "^5.0.0",
     "koa-views": "^6.1.5",
+    "koa2-cors": "^2.0.6",
+    "lodash": "^4.17.11",
+    "pm2": "^4.1.2",
     "puer": "^2.0.1",
+    "qiniu": "^7.2.1",
+    "qiniu-js": "^2.5.4",
     "request": "^2.88.0",
     "swig": "^1.4.2",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.5.3",
     "wechaty": "^0.22.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@bizcharts/gauge-basic": "^0.1.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
