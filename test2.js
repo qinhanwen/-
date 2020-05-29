@@ -1,100 +1,65 @@
-function MyPromise(exector) {
-    var self = this;
-    self.status = 'pending';
-    self.value = '';
+function transformPriceData(data) {
+  console.warn("数据格式转换中");
+  let typeMap = {
+    // 类型与字段的映射
+    1: "continueMonth",
+    2: "month",
+    3: "continueQuarter",
+    4: "quarter",
+    5: "continueYear",
+    6: "year"
+  };
 
-    //存放成功或失败回调数组
-    self.successCB = [];
-    self.errorCB = [];
+  let anchorPriceMap = {
+    // 一个月，一个季，一年的真实价格
+    month: 0,
+    quarter: 0,
+    year: 0
+  };
 
-    function resolve(value) {
-        if (self.status == 'pending') {
-            self.status = 'resolved';
-            self.value = value;
-            self.successCB.forEach(function (cb) {
-                cb();
-            })
-        }
+  let continueAnchorPricemap = {
+    // 包月、包季、包年，映射的真实价格字段
+    1: "month",
+    3: "quarter",
+    5: "year"
+  };
+
+  data.forEach(item => {
+    if (typeMap[item.type] in anchorPriceMap) {
+      anchorPriceMap[typeMap[item.type]] = item.price;
     }
+  });
+  const data1 = data.map(item => {
+    return {
+      currency: "cny",
+      planType: typeMap[item.type],
+      anchorPrice:
+        item.type in continueAnchorPricemap
+          ? anchorPriceMap[continueAnchorPricemap[item.type]]
+          : item.price,
+      realPrice: item.price
+    };
+  });
+  console.warn("数据格式转换成功", data1);
 
-    function reject(value) {
-        if (self.status == 'pending') {
-            self.status = 'rejected';
-            self.value = value;
-            self.errorCB.forEach(function (cb) {
-                cb();
-            })
-        }
-    }
-    exector(resolve, reject);
+  return data.map(item => {
+    return {
+      currency: "cny",
+      planType: typeMap[item.type],
+      anchorPrice:
+        item.type in continueAnchorPricemap
+          ? anchorPriceMap[continueAnchorPricemap[item.type]]
+          : item.price,
+      realPrice: item.price
+    };
+  });
 }
-MyPromise.prototype.then = function (onFulfilled, onRejected) {
-    const self = this;
-    return new MyPromise(function (resolve, reject) {
-        if (self.status == 'resolved') {
-            if (typeof onFulfilled == "function") {
-                let result = onFulfilled(self.value);
-                if (result instanceof MyPromise) {
-                    result.then(resolve,reject);
-                } else {
-                    resolve(result);
-                }
-            } else {
-                resolve(self.value);
-            }
-        }
 
-        if (self.status == 'rejected') {
-            if (typeof onFulfilled == "function") {
-                let result = reject(onRejected(self.value));
-                if(result instanceof MyPromise){
-                    result.then(resolve,reject);
-                }else{
-                    reject(onRejected(self.value));
-                }
-            } else {
-                reject(self.value);
-            }
-        }
-
-        if (self.status == 'pending') {
-            self.successCB.push(function () {
-                if (typeof onFulfilled == "function") {
-                    let result = onFulfilled(self.value);
-                    if (result instanceof MyPromise) {
-                        result.then(resolve,reject);
-                    } else {
-                        resolve(result);
-                    }
-                } else {
-                    resolve(self.value);
-                }
-            })
-            self.errorCB.push(function () {
-                if (typeof onFulfilled == "function") {
-                    let result = reject(onRejected(self.value));
-                    if(result instanceof MyPromise){
-                        result.then(resolve,reject);
-                    }else{
-                        reject(onRejected(self.value));
-                    }
-                } else {
-                    reject(self.value);
-                }
-            })
-        }
-    })
-}
-new Promise((resolve)=>{
-    setTimeout(()=>{
-        resolve();
-    },1000)
-}).then((data)=>{
-    return new Promise((resolve)=>{
-            setTimeout(()=>{
-                resolve(2000);
-            },2000)
-        })
-}).then((data)=>{
-    console.log(data);
-})
+transformPriceData([
+  { type: 1, price: 90 },
+  { type: 2, price: 901 },
+  { type: 3, price: 90 },
+  { type: 4, price: 903 },
+  { type: 5, price: 90 },
+  { type: 6, price: 950 }
+]);

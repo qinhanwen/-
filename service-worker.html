@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    if (navigator.serviceWorker) {
+        window.addEventListener('DOMContenLoaded', function () {
+            //注册，url是脚本所在的路径
+            navigator.serviceWorker.register('./index.js');
+        })
+    }
+    
+    var cacheKey = new Date().getTime(); //唯一标识
+
+    //需要被缓存的文件
+    var url = "index.js";
+
+    //监听install事件
+    self.addEventListener('install', function (event) {
+        event.waitUntil(
+            caches.open(cacheKey).then(cache => {
+                return cache.addAll([url])
+            })
+        )
+    })
+
+    //监听网络请求事件，复用缓存
+    self.addEventListener('fetch', function (event) {
+        event.respondWith(
+            caches.match(event.request).then(response => {
+                console.log(response);
+            })
+        )
+    })
+</script>
+<script src="./index.js"></script>
+
+</html>

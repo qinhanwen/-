@@ -16,10 +16,11 @@ app.use((ctx, next) => {
 
 app.use((ctx, next) => {
     let origin = ctx.headers.origin;
+    console.log(origin);
     // if (whiteList.includes(origin)) {//如果判断是否存在，不建议使用indexOf
-        ctx.set('Access-Control-Allow-Origin', '*');
+        ctx.set('Access-Control-Allow-Origin', origin);
         ctx.set('Access-Control-Allow-Headers', "name,age,x-requested-with");
-        ctx.set('Access-Control-Allow-Methods', "PUT");
+        ctx.set('Access-Control-Allow-Methods', "GET");
         ctx.set('Access-Control-Allow-Credentials', true);
         ctx.set('Access-Control-Max-Age', 60);
         //新增的部分
@@ -29,10 +30,11 @@ app.use((ctx, next) => {
     next();
 })
 
-router.put('/cors', async (ctx, next) => {
+router.get('/cors', async (ctx, next) => {
     ctx.set('response', 'data');
+    console.log(ctx.cookies.get('user'));
     ctx.body = {
-        success: true
+        success: true,
     };
 })
 

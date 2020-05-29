@@ -22,7 +22,7 @@
         xmlHttp.onreadystatechange = function () {
             if (xmlHttp.readyState == 4) {
                 if ((xmlHttp.status >= 200 && xmlHttp.status <= 300) || xmlHttp.status == 304) {
-                    console.log(xmlHttp.response);
+                    document.body.innerHTML = xmlHttp.response;
                     //新增的部分
                     console.log(xmlHttp.getResponseHeader('response'));
                     //
@@ -31,7 +31,7 @@
         }
         document.cookie = "user=qinhanwen";
         xmlHttp.withCredentials = true;
-        xmlHttp.open('PUT', 'http://127.0.0.1:3000/cors', true);
+        xmlHttp.open('GET', 'http://127.0.0.1:3000/cors', true);
         xmlHttp.setRequestHeader('name', 'qinhanwen');//必须在opend以后才可以设置
         xmlHttp.send();
     }

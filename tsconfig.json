@@ -6,7 +6,7 @@
       "noImplicitAny": false,
       "lib": ["es6"]
     },
-    "experimentalDecorators":false,
+    "experimentalDecorators":true,
     "exclude": [
       "node_modules"
     ]

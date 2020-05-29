@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <svg width="100" height="100">
+      <!-- 脸的轮廓 -->
+      <circle cx="100" cy="100" r="50" style="stroke:#000;fill:none" />
+
+      <!-- 眼睛 -->
+      <circle cx="85" cy="85" r="5" style="fill:#000" />
+      <circle cx="115" cy="85" r="5" style="fill:#000" />
+
+      <!-- 胡须 -->
+      <!-- 图像分组 -->
+      <g id="whiskers">
+        <line x1="105" y1="105" x2="165" y2="95" style="stroke:black"></line>
+        <line x1="105" y1="105" x2="165" y2="115" style="stroke:black"></line>
+      </g>
+
+      <!-- 复用图像分组，坐标 x 为 -1 * x ，并且做偏移 -->
+      <use
+        xlink:href="#whiskers"
+        href="#whiskers"
+        transform="scale(-1 1) translate(-200 0)"
+      />
+    </svg>
+  </body>
+</html>

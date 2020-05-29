@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    page1
+    <button onclick="clickMe()">发送请求</button>
+    <button onclick="location.href='./page2.html'">跳转page2</button>
+    <div id='cookie'></div>
+  </body>
+  <script>
+    function clickMe() {
+      var xmlHttp;
+      if (XMLHttpRequest) {
+        xmlHttp = new XMLHttpRequest();
+      } else {
+        xmlHttp = new ActiveXObject();
+      }
+
+      xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4) {
+          if (
+            (xmlHttp.status >= 200 && xmlHttp.status <= 300) ||
+            xmlHttp.status == 304
+          ) {
+            document.body.innerHTML = xmlHttp.response;
+            //新增的部分
+            console.log(xmlHttp.getResponseHeader("response"));
+            //
+          }
+        }
+      };
+      document.cookie = "user=qinhanwen";
+      xmlHttp.withCredentials = true;
+      xmlHttp.open("GET", "http://www.meipai.com/cookie", true);
+      xmlHttp.setRequestHeader("name", "qinhanwen"); //必须在opend以后才可以设置
+      xmlHttp.send();
+    }
+    document.getElementById('cookie').innerHTML = document.cookie;
+  </script>
+</html>
