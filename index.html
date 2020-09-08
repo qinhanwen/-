@@ -1,89 +1,12 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
-    <meta http-equiv="Cache-Control" content="max-age=60000" />
-    <title>登录</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    img {
-        margin: 70px auto 0 auto;
-        width: 127px;
-        height: 127px;
-        display: block;
-        background-size: 127px 127px;
-    }
-
-    .login {
-        width: 140px;
-        height: 36px;
-        margin: 160px auto 20px auto;
-        background: white;
-        color: #01A0FF;
-        border: 1px solid #01A0FF;
-        border-radius: 4px;
-        font-size: 8px;
-        display: block;
-        text-align: center;
-        line-height: 36px;
-    }
-    h2{
-         text-align: center;
-         font-size: 16px;
-         font-weight: normal;
-         margin-top: 10px;
-    }
-    .cancel-login {
-        font-size: 14px;
-        color: #b2b2b2;
-        text-align: center;
-    }
-    .has-error{
-        width: 80%;
-        margin: 24px auto 0;
-        font-size:17px;
-        color: #ed4622;
-        text-align: center;
-    }
-    .modal{
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
-    }
-    .modal-scale{
-        transform: translate(-42%,-44%) scale(0.1,0.1);
-        transition-duration: 2s;
-        transition-timing-function: linear;
-    }
-</style>
-
 <body>
-    <div class="modal" id="modal">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAclBMVEUAAACZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZkAAAD40WwsAAAAJHRSTlMAKo7X+NYGlP2YCbv5kTgMvZXkMCv8L4+SB/PUkCwuNAvY+vQbCt0PAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAd5JREFUeNrt2MtOwlAUhtGj1IJayh28FEHd7/+MEsIQJg66NV3fBIb/WW3CCaVIkiRJkiRJkiRJkiRpAN3dj6oYWNXD/d3l+PV4kr0mp8nj0/n8z9FM21n2W9h3s3baxLw+fVvEcpW9JqfVMsalrDfNQM9fyrbarMsuXrJ35PUSuzKKNntGXm2MShN19oy8XqMpEdkrMjudHgCA7BF/CCD7btpXtwGyH0hPjx0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgOxpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwBWAgXQTYHgBAACgiTp7RV6zeCujaLNn5NXGe9nFNHtGXtPoyn5TbbN3ZPVRbfalLGK5yl6S03YZi9NH/RxNdzhmr+m746FrYn7+AajHk+y7aU6Tx6eLxrr7/Mpe03ff790+7/27fvsa0J0MAAAAAAAAAAAAAIDBAlwvexcASZKk39Xnv9rZZwUgSZIkSZIkSZIkSZKk/9IPRdh5HZXYXfEAAAAASUVORK5CYII=" />
-        <h2>登录确认</h2>
-        <h3 class="has-error" id="error"></h3>
-        <a class="login" id="login">
-            登录
-        </a>
-        <p class="cancel-login">取消登录</p>
-    </div>
+  
 </body>
-<script type="text/javascript">
-    var loginButton = document.getElementById('login');
-    var modal = document.getElementById('modal');
-    loginButton.addEventListener('click',function(){
-        modal.setAttribute('class','modal modal-scale')
-    })
-</script>
-
+<script type="module" src="./test1.js"></script>
 </html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>楼梯</title>
+    <style>
+      canvas {
+        /*border:1px solid red;*/
+      }
+    </style>
+    <script src="./canvas.js"></script>
+  </head>
+  <body>
+    <canvas id="canvas" width="300px" height="210px"></canvas>
+    <button onclick="clickMe(1)">从左到双</button>
+    <button onclick="clickMe(2)">从左到单</button>
+    <button onclick="clickMe(3)">从右到单</button>
+    <button onclick="clickMe(4)">从右到双</button>
+  </body>
+  <script>
+    var pl = new PipeLine({ id: "canvas"});
+
+    function clickMe(type) {
+      switch (type) {
+        case 1:
+          pl.fromLeftCloseIconToDoubleIcon();
+          break;
+        case 2:
+          pl.fromLeftCloseIconToSingleIcon();
+          break;
+        case 3:
+          pl.fromRightCloseIconToSingleIcon();
+          break;
+        case 4:
+          pl.fromRightCloseIconToDoubleIcon();
+          break;
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>生成水印图片</title>
+  </head>
+  <body>
+    <input type="file" accept="image/*" onchange="change(event)" />
+    <img id="mask" src="./logo.png" style="display: none;" />
+    <canvas id="canvas" style="display: none;"></canvas>
+    <img id="outputImg" />
+  </body>
+  <script src="./compress.js"></script>
+  <script>
+    function change(e) {
+      var canvas = document.getElementById("canvas");
+      var maskElement = document.getElementById("mask");
+
+      var img = new Image(); // img 标签
+      var URL =
+        window.URL && window.URL.createObjectURL
+          ? window.URL
+          : window.webkitURL && window.webkitURL.createObjectURL
+          ? window.webkitURL
+          : null;
+      if (!URL) {
+        throw Error("No createObjectURL function found to create blob url");
+      }
+      img.src = URL.createObjectURL(e.target.files[0]); // 水印的 blob URL
+      debugger
+      img.onload = function() {
+        render(canvas, maskElement, img);
+      };
+    }
+
+    function render(canvasElement, maskElement, img) {
+      var naturalWidth = img.naturalWidth;
+      var naturalHeight = img.naturalHeight;
+      canvasElement.width = naturalWidth;
+      canvasElement.height = naturalHeight;
+      var ctx = canvasElement.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+      for (let i = 0; i < 10; i++) {
+        for (let j = 0; j < 10; j++) {
+          ctx.drawImage(
+            maskElement,
+            (i * naturalWidth) / 3,
+            (j * naturalHeight) / 3,
+            114,
+            86
+          );
+        }
+      }
+      var dataURL = canvasElement.toDataURL("image/png");
+      // document.getElementById("outputImg").src = dataURL;
+
+      // 压缩图片
+      compress(dataURL, .5, 'image/png').then(res=>{
+        document.getElementById("outputImg").src = res;
+      })
+    }
+  </script>
+</html>

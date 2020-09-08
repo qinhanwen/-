@@ -1,17 +1,5 @@
-function withAuth(url: string) {
-  return function withLoginComponent(cmt: any): any {
-    return class WithAuth extends cmt {
-      constructor() {
-        super();
-        console.log('constructor',url);
-      }
-    };
-  };
+function test(key) {
+  const cbId = 'pp' + key + 'pp';
+
+  window[cbId] = function() {};
 }
-
-@withAuth('url')
-class A {
-
-}
-
-new A()
