@@ -2,35 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>postMessage demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
   </head>
-  <style></style>
   <body>
-    <ul>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-    </ul>
+    <img src="http://qinhw/123.png" alt="" />
   </body>
-  <script></script>
+
+  <script>
+    window.onerror = function(msg, _url, line, col, error) {
+      console.warn(' window.onerror: ', msg, _url, line, col, error);
+    };
+    window.addEventListener(
+      'error',
+      function(e) {
+        console.log(e);
+      },
+      true
+    );
+  </script>
 </html>

@@ -1,5 +1,24 @@
-// main.js
-console.log('main starting');
-const a = require('./a.js');
-const b = require('./b.js');
-console.log('in main, a.done = %j, b.done = %j', a.done, b.done);
+var googleMap = {
+  show: function() {
+    console.log('开始渲染谷歌地图');
+  }
+};
+
+var baiduMap = {
+  display: function() {
+    console.log('开始渲染百度地图');
+  }
+};
+
+var baiduMapAdapter = {
+  show: function() {
+    return baiduMap.display();
+  }
+};
+
+var renderMap = function(map) {
+  map.show();
+};
+
+renderMap(googleMap);
+renderMap(baiduMapAdapter);

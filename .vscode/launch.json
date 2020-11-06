@@ -1,0 +1,17 @@
+{
+  // 使用 IntelliSense 了解相关属性。
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "12.13.1",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "启动程序",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/main", // 执行目录
+      "autoAttachChildProcesses": true, // 调试子进程
+      "args": ["my-app"] // 环境参数
+    }
+  ]
+}

@@ -1,1 +1,37 @@
-https://txwk.10010.com/KCard/wxCommon/goto_direct?channel=36&ADTAG=36.5&client_key=56c3713c&channel2=5&state=KCARD_KUAISHOU_LAND
+// webpack.development.config.js
+module.exports = {
+  mode: 'development',
+  devtool: 'eval',
+  cache: true,
+  performance: {
+    hints: false
+  },
+  output: {
+    pathinfo: true
+  },
+  optimization: {
+    namedModules: true,
+    namedChunks: true,
+    nodeEnv: 'development',
+    flagIncludedChunks: false,
+    occurrenceOrder: false,
+    concatenateModules: false,
+    splitChunks: {
+      hidePathInfo: false,
+      minSize: 10000,
+      maxAsyncRequests: Infinity,
+      maxInitialRequests: Infinity
+    },
+    noEmitOnErrors: false,
+    checkWasmTypes: false,
+    minimize: false,
+    removeAvailableModules: false
+  },
+  plugins: [
+    new webpack.NamedModulesPlugin(),
+    new webpack.NamedChunksPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
+    })
+  ]
+};

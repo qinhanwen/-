@@ -4,8 +4,6 @@ const app = new koa();
 const Router = require('koa-router');
 const router = new Router();
 
-const whiteList = ['http://localhost:8000'];
-
 app.use((ctx, next) => {
   if (ctx.method === 'OPTIONS') {
     ctx.body = '';
@@ -16,19 +14,13 @@ app.use((ctx, next) => {
 app.use((ctx, next) => {
   let origin = ctx.headers.origin;
   console.log(origin);
-  // if (whiteList.includes(origin)) {//如果判断是否存在，不建议使用indexOf
   ctx.set('Access-Control-Allow-Origin', origin);
-  ctx.set(
-    'Access-Control-Allow-Headers',
-    'name,Authorization,x-requested-with'
-  );
+  ctx.set('Access-Control-Allow-Headers', 'name,age,x-requested-with');
   ctx.set('Access-Control-Allow-Methods', 'GET');
   ctx.set('Access-Control-Allow-Credentials', true);
   ctx.set('Access-Control-Max-Age', 60);
   //新增的部分
   ctx.set('Access-Control-Expose-Headers', 'response');
-  //
-  // }
   next();
 });
 

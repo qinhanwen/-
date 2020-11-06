@@ -1,10 +1,22 @@
-// 方式一：这样的话触发更新的方式
-useEffect(() => {
-  debugger;
-  const srollHandle = throttle(setBottomBtn, 100);
-  window.addEventListener("scroll", srollHandle);
-  return () => {
-    debugger;
-    window.removeEventListener("scroll", srollHandle);
-  };
-}, []);
+var sizeof = require('object-sizeof');
+console.log(sizeof({ abc: 'def' }));
+console.log(sizeof(12345));
+const obj = {
+  a: '1111111111111111111111111111111111',
+  b: '1111111111111111111111111111111111',
+  c: '1111111111111111111111111111111111',
+  d: '1111111111111111111111111111111111',
+  e: '1111111111111111111111111111111111',
+  f: '1111111111111111111111111111111111',
+  g: '1111111111111111111111111111111111',
+  h: '1111111111111111111111111111111111',
+  i: '1111111111111111111111111111111111',
+  j: '1111111111111111111111111111111111',
+  k: '1111111111111111111111111111111111'
+};
+let arr = [];
+for (let i = 0; i < 10000; i++) {
+  arr.push(JSON.parse(JSON.stringify(obj)));
+}
+
+console.log(sizeof(arr));

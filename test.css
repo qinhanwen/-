@@ -1,351 +1,1447 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
-/* Document
-   ========================================================================== */
-
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
-
-html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+.cook-list {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
 }
-
-/* Sections
-   ========================================================================== */
-
-/**
- * Remove the margin in all browsers.
- */
-
-body {
+.cook-list-title {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  font-size: 0.85rem;
+  color: #333;
+  font-weight: 700;
+  padding-left: 1.2rem;
+}
+.cook-list-inner {
+  padding-left: 0.75rem;
+  padding-bottom: 1rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.cook-list-inner-item {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  padding-right: 0.5rem;
+}
+.cook-list-inner-item-img {
+  border-radius: 0.5rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.cook-list-inner-item-img .image-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-origin: content-box;
+}
+.cook-list-inner-item-img .image-box img {
+  height: 100%;
+}
+.cook-list-inner-item-title {
+  font-size: 0.75rem;
+  color: #333;
+  margin: 8px 0 2px;
+}
+.cook-list-inner-item-info,
+.cook-list-inner-item-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cook-list-inner-item-info {
+  font-size: 0.6rem;
+  color: #bbb;
+}
+.cook-list-inner.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+}
+.cook-list-inner.row .cook-list-inner-item-img {
+  width: 6.5rem;
+  height: 8rem;
+}
+.cook-list-inner.row .cook-list-inner-item-info,
+.cook-list-inner.row .cook-list-inner-item-title {
+  width: 6.5rem;
+}
+.cook-list-inner.column {
+  overflow: hidden;
+  margin-right: -1rem;
+}
+.cook-list-inner.column .cook-list-inner-item {
+  float: left;
+  margin-bottom: 1.25rem;
+}
+.cook-list-inner.column .cook-list-inner-item-img {
+  width: 9.35rem;
+  height: 11.5rem;
+}
+.cook-list-inner.column .cook-list-inner-item-title {
+  line-height: 1rem;
+  font-size: 0.8rem;
+  width: 9.35rem;
+  font-weight: 700;
+}
+.cook-list-inner.column .cook-list-inner-item-info {
+  line-height: 0.85rem;
+  width: 9.35rem;
+}
+.cook-list .img-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 50%;
+  z-index: 5;
+}
+.cook-list .img-placeholder img {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: auto;
+}
+.cook-detail {
+  background-color: #fff;
+  color: #333;
+}
+.cook-detail .header_image .img-placeholder {
+  width: 100%;
+}
+.cook-detail .header_image img {
+  width: 100%;
+  z-index: 5;
+}
+.cook-detail .detail-main {
+  background-color: #fff;
+  margin-top: -1rem;
+  position: relative;
+  z-index: 11;
+  padding: 0.8rem;
+  border-bottom: 0.5rem solid #f7f7f7;
+}
+.cook-detail .detail-main-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.cook-detail .detail-main-source {
+  padding: 0.35rem 0 0.75rem;
+  font-size: 0.7rem;
+  height: 20px;
+  color: #bbb;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.cook-detail .detail-main-source,
+.cook-detail .detail-main-source_left {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.cook-detail .detail-main-source_left {
+  overflow: hidden;
+  color: #17b356;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.cook-detail .detail-main-source_left .divider {
+  width: 1px;
+  height: 14px;
+  background-color: #b9e8cc;
+  margin: 0 6px;
+}
+.cook-detail .detail-main-source_right {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin-left: 1rem;
+  white-space: nowrap;
+  text-align: right;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.cook-detail .detail-main-description {
+  position: relative;
+  font-size: 0.6rem;
+  color: #bbb;
+  margin-left: 1rem;
+}
+.cook-detail .detail-main-description img {
+  position: absolute;
+  top: 3px;
+  left: -1rem;
+  height: 12px;
+}
+.cook-detail .food {
+  border-bottom: 0.5rem solid #f7f7f7;
+  padding-bottom: 1rem;
+}
+.cook-detail .food-title {
+  font-size: 0.9rem;
+  padding: 0.6rem 0.75rem;
+  font-weight: 700;
+}
+.cook-detail .food-title span {
+  font-weight: 400;
+  line-height: 1;
+  font-size: 0.6rem;
+  color: #bbb;
+  margin-left: 6px;
+}
+.cook-detail .food-group-block {
+  overflow: hidden;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.cook-detail .food-group-item-block {
+  height: 160px;
+  overflow: hidden;
+}
+.cook-detail .food-group-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 0.25rem 40px 0.75rem;
+  overflow-x: scroll;
+}
+.cook-detail .food-group-item .cook-product {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 17.5rem;
+  height: 120px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+  height: 150px;
+  overflow: hidden;
+  padding: 15px 0.75rem;
+}
+.cook-detail .food-group-item .cook-product .pupu-product-label {
+  top: 0;
+  left: 0;
+}
+.cook-detail .food-group-item .cook-product .pupu-product-inner {
+  width: 187px;
+  min-height: 120px;
+  padding-left: 0.6rem;
+}
+.cook-detail .food-group-item .cook-product .pupu-product-sale {
+  margin: 4px 0;
+}
+.cook-detail .food-group-item .pupu-mask {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.cook-detail .food-group-item:last-of-type {
+  margin-bottom: 0;
+}
+.cook-detail .food-group .more-food {
+  font-size: 0.7rem;
+  color: #333;
+  padding-top: 1rem;
+  font-weight: 700;
+}
+.cook-detail .food-group .more-food,
+.cook-detail .food-group .more-food .icon-more {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.cook-detail .food-group .more-food .icon-more {
+  margin-left: 3px;
+  border-radius: 50%;
+  background: #e7e7e7;
+  width: 14px;
+  height: 14px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.cook-detail .food-group .more-food .icon-more img {
+  display: block;
+  width: 8px;
+  line-height: 0.7rem;
+  -webkit-transform: translateX(20%);
+  transform: translateX(20%);
+}
+.cook-detail .food-group .more-food .icon-more.more {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.cook-detail .cook-food {
   margin: 0;
 }
-
-/**
- * Render the `main` element consistently in IE.
- */
-
-main {
+.cook-detail .cook-food-list {
+  padding: 0 1.75rem 0 1.25rem;
+}
+.cook-detail .cook-food-list_item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  line-height: 2.1rem;
+  border-bottom: 1px dashed #eee;
+}
+.cook-detail .cook-food-list_item:last-of-type {
+  border: 0;
+}
+.cook-detail .step {
+  padding: 0 0.75rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.cook-detail .step-item_title {
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.cook-detail .step-item_title .setp-num {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 0.6rem;
+  margin-left: 6px;
+  line-height: 1;
+}
+.cook-detail .step-item_title .setp-num_value {
+  font-size: 0.9rem;
+  color: #008c38;
+}
+.cook-detail .step-item_inner {
+  position: relative;
+}
+.cook-detail .step-item_inner_image {
+  width: 19.2rem;
+  height: 12.5rem;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-origin: content-box;
+}
+.cook-detail .step-item_inner_text {
+  padding: 0 0 1.25rem;
+  font-size: 0.75rem;
+}
+.cook-detail .remark {
+  padding: 1.5rem 0.75rem;
+  border-top: 1px solid #f7f7f7;
+}
+.cook-detail .remark .step-tip {
+  background-color: #f7f7f7;
+  font-size: 0.7rem;
+  border-radius: 5px;
+  padding: 0.75rem 0.4rem;
+}
+.cook-detail .remark .step-tip_title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.cook-detail .tips {
+  padding: 0.8rem 0.4rem;
+  background: #f7f7f7;
+  margin: 1.2rem 0.8rem;
+  font-size: 0.7rem;
+  color: #333;
+  letter-spacing: 0;
+}
+.cook-detail .tips .hint {
+  font-family: PingFangSC-Medium;
+}
+.cook-detail .tips .content {
+  margin-top: 0.5rem;
+  font-family: PingFangSC-Regular;
+}
+.cook-detail .more-cook {
+  background-color: #fff;
+}
+.cook-detail .more-cook .cook-list-inner {
+  padding-bottom: 0;
+}
+.cook-detail .footer {
+  line-height: 4rem;
+  text-align: center;
+  padding-bottom: 3rem;
+}
+.cook-detail .footer img {
+  width: 5.1rem;
+}
+.cook-detail .bottom-tool {
+  width: 100%;
+  max-width: 500px;
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 20;
+  bottom: 1.75rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 1rem;
+  pointer-events: none;
+}
+.cook-detail .bottom-tool img {
+  width: 20px;
+  display: block;
+  opacity: 0.6;
+}
+.cook-detail .bottom-tool_left {
+  background: hsla(0, 0%, 100%, 0.9);
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 22px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  pointer-events: auto;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 44px;
+}
+.cook-detail .bottom-tool_left .btn {
+  padding: 0 16px;
+}
+.cook-detail .bottom-tool_left .btn:first-of-type {
+  border-right: 1px solid #e7e7e7;
+}
+.cook-detail .bottom-tool_left .btn-buy {
+  position: relative;
+}
+.cook-detail .bottom-tool_left .btn-buy_count {
+  font-family: ArialNarrowBold;
+  position: absolute;
+  height: 14px;
+  border-radius: 7px;
+  background-color: #e90000;
+  color: #fff;
+  line-height: 0.7rem;
+  font-size: 0.6rem;
+  padding: 0 6px;
+  top: -7px;
+  left: 28px;
+}
+.cook-detail .bottom-tool_right {
+  position: absolute;
+  pointer-events: auto;
+  background: hsla(0, 0%, 100%, 0.9);
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 22px;
+  height: 44px;
+  width: 44px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  right: 1rem;
+  opacity: 0;
+}
+.cook-detail .bottom-tool_right.active {
+  opacity: 1;
+}
+.cook-detail .text-class {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.pupu-product {
+  position: relative;
+}
+.pupu-product-label {
+  position: absolute;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 6px;
+  font-size: 12px;
+  color: #fff;
+  border-top-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  z-index: 10;
+}
+.pupu-product-label.red {
+  background-image: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(#ff7474),
+    to(#ed3b3b)
+  );
+  background-image: linear-gradient(-90deg, #ff7474, #ed3b3b);
+}
+.pupu-product-label.green {
+  background-image: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(#29cd6b),
+    to(#17b356)
+  );
+  background-image: linear-gradient(-90deg, #29cd6b, #17b356);
+}
+.pupu-product-label.yellow {
+  background-image: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(#ff9000),
+    to(#ff6b00)
+  );
+  background-image: linear-gradient(-90deg, #ff9000, #ff6b00);
+}
+.pupu-product-label.blue {
+  background-image: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(#49b5eb),
+    to(#1d9ad9)
+  );
+  background-image: linear-gradient(-90deg, #49b5eb, #1d9ad9);
+}
+.pupu-product-label.purple {
+  background-image: -webkit-gradient(
+    linear,
+    right top,
+    left top,
+    from(#9f43f3),
+    to(#7939dc)
+  );
+  background-image: linear-gradient(-90deg, #9f43f3, #7939dc);
+}
+.pupu-product-image {
+  position: relative;
+}
+.pupu-product-image img {
+  width: 100%;
   display: block;
 }
-
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
+.pupu-product-image.out-stock img {
+  opacity: 0.5;
 }
-
-/* Grouping content
-   ========================================================================== */
-
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-
-hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
+.pupu-product-image_mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 84px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 13px;
+  line-height: 26px;
+  height: 26px;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
 }
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+.pupu-product-image_mark.round {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px 5px;
+  line-height: 20px;
 }
-
-/* Text-level semantics
-   ========================================================================== */
-
-/**
- * Remove the gray background on active links in IE 10.
- */
-
-a {
-  background-color: transparent;
+.pupu-product-image_mark.round .top {
+  border-bottom: 1px solid #fff;
 }
-
-/**
- * 1. Remove the bottom border in Chrome 57-
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
- */
-
-abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+.pupu-product-name {
+  font-weight: 650;
+  color: #333;
 }
-
-/**
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
-
-b,
-strong {
-  font-weight: bolder;
+.pupu-product-info,
+.pupu-product-name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
 }
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-code,
-kbd,
-samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+.pupu-product-info {
+  font-size: 13px;
+  color: #aaa;
+  line-height: 18px;
 }
-
-/**
- * Add the correct font size in all browsers.
- */
-
-small {
-  font-size: 80%;
+.pupu-product-info.blue {
+  color: #1d9ad9;
 }
-
-/**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
+.pupu-product-sale {
+  max-height: 18px;
+  overflow: hidden;
+  width: 100%;
+}
+.pupu-product-sale_item {
+  float: left;
+  margin-right: 4px;
+  line-height: 18px;
+  padding: 0 6px;
+  height: 18px;
+  border-radius: 9px;
+  font-size: 12px;
+  background: rgba(233, 0, 0, 0.06);
+  color: #e90000;
+  white-space: nowrap;
+}
+.pupu-product-sale_item.progress {
+  width: 100px;
+  border: 1px solid #ed3b3b;
   position: relative;
-  vertical-align: baseline;
+  color: #ed3b3b;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
 }
-
-sub {
-  bottom: -0.25em;
+.pupu-product-sale_item.progress .percent {
+  background: rgba(233, 0, 0, 0.1);
+  position: absolute;
+  height: 100%;
+  border-radius: 9px;
+  top: 0;
+  left: 0;
 }
-
-sup {
-  top: -0.5em;
+.pupu-product-sale_item.progress .value {
+  position: absolute;
+  left: 50%;
+  line-height: 16px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 2;
 }
-
-/* Embedded content
-   ========================================================================== */
-
-/**
- * Remove the border on images inside links in IE 10.
- */
-
-img {
-  border-style: none;
+.pupu-product-sale_item.gray {
+  color: #bbb;
+  background: #f9f9f9;
 }
-
-/* Forms
-   ========================================================================== */
-
-/**
- * 1. Change the font styles in all browsers.
- * 2. Remove the margin in Firefox and Safari.
- */
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
+.pupu-product-price {
+  font-size: 15px;
+  font-family: ArialNarrowBold;
+  overflow: hidden;
+  height: 26px;
 }
-
-/**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
-
-button,
-input {
-  /* 1 */
+.pupu-product-price_new {
+  float: left;
+  color: #ff9000;
+}
+.pupu-product-price_new.red {
+  color: #ed3b3b;
+}
+.pupu-product-price_new span {
+  font-size: 22px;
+}
+.pupu-product-price_old {
+  float: left;
+  margin-left: 4px;
+  color: #bbb;
+  text-decoration: line-through;
+  height: 26px;
+  line-height: 32px;
+  vertical-align: text-bottom;
+}
+.pupu-product-num {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+.pupu-product-num img {
+  width: 22px;
+  display: block;
+}
+.pupu-product-num_value {
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  width: 1.7rem;
+  text-align: center;
+}
+.pupu-product-inner {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.pupu-product-inner_top {
+  text-align: left;
+}
+.pupu-product-inner_bottom {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.pupu-product_large {
+  padding: 15px 15px 15px 0.75rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #fff;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.pupu-product_large .pupu-product {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.pupu-product_large .pupu-product-label {
+  top: 15px;
+  left: 0.75rem;
+}
+.pupu-product_large .pupu-product-image {
+  width: 100px;
+  height: 100px;
+  min-height: 100px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.pupu-product_large .pupu-product-inner {
+  min-height: 104px;
+  padding-left: 12px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.pupu-product_large .pupu-product-inner_top {
+  padding-bottom: 8px;
+}
+.pupu-product_large .pupu-product-inner .pupu-product-name {
+  font-size: 16px;
+  line-height: 22px;
+  height: 22px;
+}
+.pupu-product_large .pupu-product-inner .pupu-product-sale {
+  margin: 6px 0;
+}
+.pupu-product_large .pupu-product-inner_bottom {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.pupu-product_large .pupu-product-inner .pupu-product-price {
+  font-size: 15px;
+  font-family: ArialNarrowBold;
+  overflow: hidden;
+  height: 26px;
+}
+.pupu-product_large .pupu-product-inner .pupu-product-price_new {
+  float: left;
+}
+.pupu-product_large .pupu-product-inner .pupu-product-price_new span {
+  font-size: 22px;
+}
+.pupu-product_large .pupu-product-inner .pupu-product-price_old {
+  float: left;
+  margin-left: 4px;
+  color: #bbb;
+  text-decoration: line-through;
+  height: 26px;
+  line-height: 32px;
+  vertical-align: text-bottom;
+}
+.pupu-product_large .pupu-product-inner .pupu-product-num {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+.pupu-product_large .pupu-product-inner .pupu-product-num img {
+  width: 22px;
+  display: block;
+}
+.pupu-product_large .pupu-product-inner .pupu-product-num_value {
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  width: 1.7rem;
+  text-align: center;
+}
+.pupu-product_small {
+  display: inline-block;
+  width: 33.33%;
+  padding: 0 3px 10px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.pupu-product_small .pupu-product {
+  position: relative;
+  padding: 8px 0 18px;
+  background-color: #fff;
+  border-radius: 10px;
+  border-top-left-radius: 8px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.pupu-product_small .pupu-product-label {
+  top: 0;
+  left: 0;
+}
+.pupu-product_small .pupu-product-image {
+  width: 100%;
+  min-height: 6rem;
+  overflow: hidden;
+}
+.pupu-product_small .pupu-product-name {
+  font-size: 12px;
+}
+.pupu-product_small .pupu-product-inner {
+  padding: 0 6px;
+  margin-top: 10px;
+  position: relative;
+}
+.pupu-product_small .pupu-product-info {
+  font-size: 12px;
+  color: #333;
+}
+.pupu-product_small .pupu-product-sale {
+  position: absolute;
+  top: -20px;
+}
+.pupu-product_small .pupu-product-price {
+  position: relative;
   overflow: visible;
+  font-size: 12px;
 }
-
-/**
- * Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritance of text transform in Firefox.
- */
-
-button,
-select {
-  /* 1 */
-  text-transform: none;
+.pupu-product_small .pupu-product-price_new span {
+  font-size: 18px;
+  line-height: 26px;
 }
-
-/**
- * Correct the inability to style clickable types in iOS and Safari.
- */
-
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
+.pupu-product_small .pupu-product-price_old {
+  position: absolute;
+  bottom: -16px;
+  margin-left: 0;
 }
-
-/**
- * Remove the inner border and padding in Firefox.
- */
-
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  border-style: none;
+.pupu-product_small .pupu-product-num {
+  position: relative;
+}
+.pupu-product_small .pupu-product-num_value {
+  font-family: ArialNarrowBold;
+  font-size: 12px;
+  position: absolute;
+  z-index: 2;
+  top: -4px;
+  right: -4px;
+  color: #fff;
+  height: 14px;
+  line-height: 12px;
+  padding: 0 4px;
+  width: auto;
+  min-width: 14px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #e90000;
+  border-radius: 7px;
+  border: 1px solid #fff;
+}
+.pupu-product_small .pupu-product-num img {
+  width: 26px;
+  height: 26px;
+  margin-bottom: -2px;
+}
+.pupu-product_small .pupu-product-num_add.gray {
+  -webkit-filter: grayscale(90%);
+  filter: grayscale(90%);
+  -webkit-filter: grey;
+  filter: gray;
+}
+.pupu-product_middle {
+  display: inline-block;
+  width: 50%;
+  padding: 0 5px 10px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.pupu-product_middle .pupu-product {
+  position: relative;
+  padding-bottom: 14px;
+  background-color: #fff;
+  border-radius: 10px;
+  border-top-left-radius: 5px;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.pupu-product_middle .pupu-product-label {
+  top: 0;
+  left: 0;
+}
+.pupu-product_middle .pupu-product-image {
+  width: 100%;
+  overflow: hidden;
+}
+.pupu-product_middle .pupu-product-name {
+  font-size: 16px;
+}
+.pupu-product_middle .pupu-product-inner {
+  padding: 0 10px;
+  margin-top: 26px;
+}
+.pupu-product_middle .pupu-product-inner_top {
+  min-height: 58px;
+  position: relative;
+}
+.pupu-product_middle .middle-top {
+  position: absolute;
+  bottom: 60px;
+}
+.pupu-product_middle .middle-top .pupu-product-info {
+  margin-top: 4px;
+}
+.pupu-product_middle .pupu-product-num img {
+  width: 22px;
+}
+.pupu-popup-hintTitle,
+.pupu-popup-remark {
+  font-size: 16px;
+  color: #333;
+}
+.pupu-popup-remark {
+  background-color: #f7f7f7;
+  border-radius: 4px;
+  margin-right: 10px;
+  min-width: 60px;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  display: inline-block;
+  border: 1px solid #f7f7f7;
+}
+.pupu-popup-remark.active {
+  background-color: #f3fff8;
+  border: 1px solid #17b356;
+  color: #17b356;
+}
+.pupu-popup-batch-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  background: #f7f7f7;
+  height: 3.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #f7f7f7;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.pupu-popup-batch-item_left {
+  text-align: center;
+  font-size: 18px;
+  color: #ff9000;
+  width: 4.8rem;
+}
+.pupu-popup-batch-item_left span {
+  font-size: 30px;
+  font-family: ArialNarrowBold;
+}
+.pupu-popup-batch-item_right {
+  font-size: 14px;
+}
+.pupu-popup-batch-item_status {
+  width: 1rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+.pupu-popup-batch-item_status img {
+  width: 100%;
+  display: block;
+}
+.pupu-popup-batch-item.active {
+  background: #f3fff8;
+  border: 1px solid #17b356;
+}
+.pupu-popup-batch-item.active_status {
+  display: block;
+}
+.pupu-popup-batch-item.disable,
+.pupu-popup-batch-item.disable .branch-item_left {
+  color: #aaa;
+}
+.pupu-popup-batch-item.disable .font-blue {
+  color: #aaa !important;
+}
+.pupu-popup-btnConfirm {
+  margin-top: 67px;
+  height: 40px;
+  background: #17b356;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  line-height: 40px;
+}
+.pupu-product-popup-btn {
+  margin: 3px 0.75rem;
+  line-height: 2rem;
+  height: 2rem;
+  text-align: center;
+  border-radius: 1rem;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#29cd6b),
+    to(#17b356)
+  );
+  background-image: linear-gradient(90deg, #29cd6b, #17b356);
+  font-size: 16px;
+  color: #fff;
+}
+.btn-similar-product {
+  border: 1px solid #b9e8cc;
+  border-radius: 11px;
+  font-size: 10px;
+  color: #17b356;
+  height: 18px;
+  line-height: 20px;
+  padding: 0 8px;
+}
+.pupu-product-popup {
+  position: fixed;
+  z-index: 1000;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 0;
+}
+.pupu-product-popup.pupu-product-popup-open {
+  width: 100%;
+}
+.pupu-product-popup.pupu-product-popup-open .pupu-product-popup-mask {
+  height: 100%;
+  opacity: 1;
+}
+.pupu-product-popup.pupu-product-popup-open
+  .pupu-product-popup-content-wrapper {
+  height: 20rem;
+}
+.pupu-product-popup .pupu-product-popup-mask {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  -webkit-transition: opacity 0.3s linear, height 0s;
+  transition: opacity 0.3s linear, height 0s;
+  height: 0;
+  opacity: 0;
+}
+.pupu-product-popup .pupu-product-popup-content-wrapper {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background: #fff;
+  border-radius: 10px 10px 0 0;
+  -webkit-transition: height 0.3s linear;
+  transition: height 0.3s linear;
+  height: 0;
+  overflow: hidden;
+}
+.pupu-product-popup .pupu-product-popup-content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.pupu-product-popup .pupu-product-popup-content,
+.pupu-product-popup .pupu-product-popup-content .pupu-product-popup-herder {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.pupu-product-popup .pupu-product-popup-content .pupu-product-popup-herder {
+  padding: 0.3rem 0.75rem 0;
+  height: 2.5rem;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 700;
+}
+.pupu-product-popup
+  .pupu-product-popup-content
+  .pupu-product-popup-herder_black {
+  min-width: 15px;
+}
+.pupu-product-popup .pupu-product-popup-content .pupu-product-popup-body {
+  height: 13.2rem;
+  overflow-y: scroll;
+}
+.pupu-product-popup .pupu-product-popup-content .pupu-product-popup-footer {
+  -webkit-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+  height: 4rem;
+}
+.pupu-product-popup .pupu-product-popup-icon {
+  height: 16px;
+  width: auto;
+}
+.pupu-spin-spining {
+  text-align: center;
+  padding-top: 16px;
+}
+.pupu-spin-spining img {
+  margin: 0 auto;
+}
+.pupu-spin-spining .icon-loading {
+  -webkit-animation: load 0.6s linear infinite;
+  animation: load 0.6s linear infinite;
+  width: 30px;
+  height: 30px;
+  position: static;
+}
+.pupu-spin-spining.small {
+  padding-top: 0;
+}
+.pupu-spin-spining.small .icon-loading {
+  width: 15px;
+  height: 15px;
+}
+.pupu-spin-block {
+  position: relative;
+}
+.pupu-spin-block .pupu-spin-spining {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+}
+.pupu-spin-block.small .pupu-spin-spining {
+  top: 0;
+}
+.pupu-spin-blur {
+  position: relative;
+}
+.pupu-spin-blur > .pupu-spin-blur_mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsla(0, 0%, 88.2%, 0.5);
+  z-index: 2;
+}
+@-webkit-keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+@keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+.pupu-similar-products {
+  height: 100%;
+}
+.pupu-similar-products_product {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: scroll;
+  padding: 0.5rem 0.5rem 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.pupu-similar-products_product .pupu-product_small {
+  width: 7rem;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  padding-right: 8px;
+}
+.pupu-similar-products_product .pupu-product_small .pupu-product {
+  border: 1px solid #e7e7e7;
+  border-radius: 0.5rem;
+}
+.pupu-similar-products_empty {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 16px;
+  color: #ddd;
+  height: 100%;
+}
+.pupu-similar-products_empty img {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 0.5rem;
+}
+.pupu-pupu-product-select-batch--auS-v {
+  padding: 0 0.75rem;
+}
+.pupu-pupu-product-select-batch--auS-v .pupu-product_large {
   padding: 0;
 }
-
-/**
- * Restore the focus styles unset by the previous rule.
- */
-
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
+.pupu-pupu-product-select-batch--auS-v .pupu-product_large .pupu-product-image {
+  width: 3.5rem;
+  height: 3.5rem;
+  min-height: 3.5rem;
+  border: 1px solid #f9f9f9;
 }
-
-/**
- * Correct the padding in Firefox.
- */
-
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
+.pupu-pupu-product-select-batch--auS-v .pupu-product_large .pupu-product-name {
+  font-size: 14px;
 }
-
-/**
- * 1. Correct the text wrapping in Edge and IE.
- * 2. Correct the color inheritance from `fieldset` elements in IE.
- * 3. Remove the padding so developers are not caught out when they zero out
- *    `fieldset` elements in all browsers.
- */
-
-legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
+.pupu-pupu-product-select-batch--auS-v .pupu-product_large .pupu-product-inner {
+  padding-left: 0.75rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
-
-/**
- * Add the correct vertical alignment in Chrome, Firefox, and Opera.
- */
-
-progress {
-  vertical-align: baseline;
+.pupu-pupu-product-select-batch--auS-v
+  .pupu-product_large
+  .pupu-product-inner_top {
+  padding-bottom: 0;
 }
-
-/**
- * Remove the default vertical scrollbar in IE 10+.
- */
-
-textarea {
-  overflow: auto;
+.pupu-pupu-product-select-batch-inner--24A7e {
+  padding: 0 0.25rem 2rem;
 }
-
-/**
- * 1. Add the correct box sizing in IE 10.
- * 2. Remove the padding in IE 10.
- */
-
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
+.pupu-pupu-product-select-batch-inner--24A7e .pupu-select-title--1CBmU {
+  font-size: 16px;
+  color: #333;
+  padding: 1rem 0 0.5rem;
 }
-
-/**
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
-
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
+.pupu-pupu-product-select-batch-inner--24A7e .pupu-batch-item--7t7pW {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  background: #f7f7f7;
+  border-radius: 4px;
+  position: relative;
+  height: 4rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #f7f7f7;
 }
-
-/**
- * 1. Correct the odd appearance in Chrome and Safari.
- * 2. Correct the outline style in Safari.
- */
-
-[type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
+.pupu-pupu-product-select-batch-inner--24A7e
+  .pupu-batch-item--7t7pW.pupu-active--3OE8d {
+  border: 1px solid #17b356;
+  background-color: #f3fff8;
 }
-
-/**
- * Remove the inner padding in Chrome and Safari on macOS.
- */
-
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
+.pupu-pupu-product-select-batch-inner--24A7e .pupu-batch-item-left--sVdgy {
+  font-size: 1rem;
+  color: #ff9000;
+  font-family: ArialNarrowBold;
 }
-
-/**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
- */
-
-::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
+.pupu-pupu-product-select-batch-inner--24A7e .pupu-batch-item-left--sVdgy span {
+  font-size: 1.5rem;
 }
-
-/* Interactive
-   ========================================================================== */
-
-/*
- * Add the correct display in Edge, IE 10+, and Firefox.
- */
-
-details {
-  display: block;
+.pupu-pupu-product-select-batch-inner--24A7e .pupu-batch-item-right--1N0cb {
+  width: 13rem;
+  font-size: 14px;
+  color: #333;
+  line-height: 22px;
 }
-
-/*
- * Add the correct display in all browsers.
- */
-
-summary {
-  display: list-item;
+.pupu-pupu-product-select-batch-inner--24A7e .pupu-batch-item-status--1Bfe8 {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
-
-/* Misc
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 10+.
- */
-
-template {
-  display: none;
+.pupu-pupu-product-select-batch-inner--24A7e
+  .pupu-batch-item-status--1Bfe8
+  img {
+  width: 1.2rem;
+  height: 1.2rem;
 }
-
-/**
- * Add the correct display in IE 10.
- */
-
-[hidden] {
-  display: none;
+.pupu-pupu-product-select-batch-inner--24A7e
+  .pupu-remarks--2tm19
+  .pupu-select-inner--1xK7V {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.pupu-pupu-product-select-batch-inner--24A7e
+  .pupu-remarks--2tm19
+  .pupu-select-inner--1xK7V
+  .pupu-remark-item--KA8h7 {
+  background: #f7f7f7;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  padding: 0 0.7rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  min-width: 3rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  margin-right: 0.5rem;
+  border: 1px solid #f7f7f7;
+}
+.pupu-pupu-product-select-batch-inner--24A7e
+  .pupu-remarks--2tm19
+  .pupu-select-inner--1xK7V
+  .pupu-remark-item--KA8h7.pupu-active--3OE8d {
+  background: #f3fff8;
+  border: 1px solid #17b356;
+  border-radius: 4px;
+  color: #17b356;
 }
