@@ -23,7 +23,7 @@
     "koa-views": "^6.1.5",
     "koa2-cors": "^2.0.6",
     "lodash": "^4.17.11",
-    "neo-async": "^2.6.1",
+    "neo-async": "^2.6.2",
     "node-xlsx": "^0.15.0",
     "object-sizeof": "^1.6.1",
     "officegen": "^0.6.4",
