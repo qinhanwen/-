@@ -1,12 +1,12 @@
 class PipeLine {
   constructor(ops) {
     this.canvas = document.getElementById(ops.id);
-    if (!this.canvas) throw new Error("canvasELement is not defined");
-    this.ctx = canvas.getContext("2d");
+    if (!this.canvas) throw new Error('canvasELement is not defined');
+    this.ctx = canvas.getContext('2d');
     this.init();
   }
 
-  renderBtnWithLineArrow(x, y, r, fill = "#000") {
+  renderBtnWithLineArrow(x, y, r, fill = '#000') {
     this.ctx.beginPath();
     this.ctx.arc(x, y, r, 0, 2 * Math.PI);
     this.ctx.strokeStyle = fill;
@@ -18,7 +18,7 @@ class PipeLine {
     this.drawLineArrow(x, y - 0.5 * r, x, y + 0.5 * r);
   }
 
-  drawLineArrow(fromX, fromY, toX, toY, color = "#fff") {
+  drawLineArrow(fromX, fromY, toX, toY, color = '#fff') {
     this.ctx.save();
     var headlen = 10; //自定义箭头线的长度
     var theta = 45; //自定义箭头线与直线的夹角，个人觉得45°刚刚好
@@ -53,7 +53,7 @@ class PipeLine {
     this.ctx.restore();
   }
 
-  renderSingleIcon(x, y, r, fill = "#D3D3D3") {
+  renderSingleIcon(x, y, r, fill = '#D3D3D3') {
     this.ctx.save();
     this.ctx.beginPath();
     this.ctx.arc(x, y, r, 0, 2 * Math.PI);
@@ -63,13 +63,13 @@ class PipeLine {
     this.ctx.fill();
     this.ctx.closePath();
 
-    this.ctx.font = "20px Verdana";
-    this.ctx.fillStyle = "#fff";
-    this.ctx.fillText("单", x - 0.5 * r, y + 0.4 * r, 30);
+    this.ctx.font = '20px Verdana';
+    this.ctx.fillStyle = '#fff';
+    this.ctx.fillText('单', x - 0.5 * r, y + 0.4 * r, 30);
     this.ctx.restore();
   }
 
-  renderDoubleIcon(x, y, r, fill = "#D3D3D3") {
+  renderDoubleIcon(x, y, r, fill = '#D3D3D3') {
     this.ctx.save();
     this.ctx.beginPath();
     this.ctx.arc(x, y, r, 0, 2 * Math.PI);
@@ -78,9 +78,9 @@ class PipeLine {
     this.ctx.fillStyle = fill;
     this.ctx.fill();
 
-    this.ctx.font = "20px Verdana";
-    this.ctx.fillStyle = "#fff";
-    this.ctx.fillText("双", x - 0.5 * r, y + 0.4 * r, 30);
+    this.ctx.font = '20px Verdana';
+    this.ctx.fillStyle = '#fff';
+    this.ctx.fillText('双', x - 0.5 * r, y + 0.4 * r, 30);
     this.ctx.closePath();
     this.ctx.restore();
   }
@@ -89,9 +89,9 @@ class PipeLine {
     this.ctx.save();
     this.ctx.beginPath();
     this.ctx.arc(x, y, r, 0, 2 * Math.PI);
-    this.ctx.strokeStyle = "#D3D3D3";
+    this.ctx.strokeStyle = '#D3D3D3';
     this.ctx.stroke();
-    this.ctx.fillStyle = "#D3D3D3";
+    this.ctx.fillStyle = '#D3D3D3';
     this.ctx.fill();
     this.ctx.closePath();
     // 计算 x 的坐标
@@ -103,11 +103,11 @@ class PipeLine {
     this.ctx.beginPath();
     this.ctx.moveTo(x1, y1);
     this.ctx.lineTo(x2, y2);
-    this.ctx.strokeStyle = "#A9A9A9";
+    this.ctx.strokeStyle = '#A9A9A9';
     this.ctx.lineWidth = 4;
     this.ctx.moveTo(x1, y2);
     this.ctx.lineTo(x2, y1);
-    this.ctx.strokeStyle = "#A9A9A9";
+    this.ctx.strokeStyle = '#A9A9A9';
     this.ctx.lineWidth = 4;
     this.ctx.stroke();
     this.ctx.closePath();
@@ -121,14 +121,14 @@ class PipeLine {
     this.ctx.moveTo(40, 50);
     this.ctx.lineTo(40, 160);
 
-    this.ctx.strokeStyle = "#D3D3D3";
+    this.ctx.strokeStyle = '#D3D3D3';
     this.ctx.lineWidth = 12;
 
     // 竖线 2
     this.ctx.moveTo(260, 50);
     this.ctx.lineTo(260, 160);
 
-    this.ctx.strokeStyle = "#D3D3D3";
+    this.ctx.strokeStyle = '#D3D3D3';
     this.ctx.lineWidth = 12;
     this.ctx.stroke();
     this.ctx.closePath();
@@ -145,7 +145,7 @@ class PipeLine {
         this.ctx.lineTo(x > finishX ? x-- : x++, y);
         // this.ctx.lineJoin = "round";
 
-        this.ctx.strokeStyle = "#000";
+        this.ctx.strokeStyle = '#000';
         this.ctx.lineWidth = 12;
         this.ctx.stroke();
       });
@@ -162,7 +162,7 @@ class PipeLine {
         this.ctx.lineTo(x, y > finishY ? y-- : y++);
         // this.ctx.lineJoin = "round";
 
-        this.ctx.strokeStyle = "#000";
+        this.ctx.strokeStyle = '#000';
 
         this.ctx.lineWidth = 12;
         this.ctx.stroke();
@@ -203,7 +203,7 @@ class PipeLine {
     this.ctx.moveTo(40, 131);
     this.ctx.lineTo(260, 131);
 
-    this.ctx.strokeStyle = "#D3D3D3";
+    this.ctx.strokeStyle = '#D3D3D3';
     this.ctx.lineWidth = 12;
     this.ctx.stroke();
     this.ctx.closePath();
@@ -225,7 +225,7 @@ class PipeLine {
                 this.renderY(260, 131, 160).then(res => {
                   this.ctx.closePath();
                   this.ctx.restore();
-                  this.renderDoubleIcon(260, 190, 20, "#ec4b4b");
+                  this.renderDoubleIcon(260, 190, 20, '#ec4b4b');
                 });
               });
             });
@@ -258,7 +258,7 @@ class PipeLine {
     this.ctx.moveTo(40, 138);
     this.ctx.lineTo(260, 138);
 
-    this.ctx.strokeStyle = "#D3D3D3";
+    this.ctx.strokeStyle = '#D3D3D3';
     this.ctx.lineWidth = 12;
     this.ctx.stroke();
     this.ctx.closePath();
@@ -282,7 +282,7 @@ class PipeLine {
                     this.renderY(40, 138, 160).then(res => {
                       this.ctx.closePath();
                       this.ctx.restore();
-                      this.renderSingleIcon(40, 190, 20, "#0033FF");
+                      this.renderSingleIcon(40, 190, 20, '#0033FF');
                     });
                   });
                 });
@@ -313,7 +313,7 @@ class PipeLine {
     this.ctx.moveTo(40, 131);
     this.ctx.lineTo(260, 131);
 
-    this.ctx.strokeStyle = "#D3D3D3";
+    this.ctx.strokeStyle = '#D3D3D3';
     this.ctx.lineWidth = 12;
     this.ctx.stroke();
     this.ctx.closePath();
@@ -335,7 +335,7 @@ class PipeLine {
                 this.renderY(40, 131, 160).then(res => {
                   this.ctx.closePath();
                   this.ctx.restore();
-                  this.renderSingleIcon(40, 190, 20, "#0033FF");
+                  this.renderSingleIcon(40, 190, 20, '#0033FF');
                 });
               });
             });
@@ -368,7 +368,7 @@ class PipeLine {
     this.ctx.moveTo(40, 138);
     this.ctx.lineTo(260, 138);
 
-    this.ctx.strokeStyle = "#D3D3D3";
+    this.ctx.strokeStyle = '#D3D3D3';
     this.ctx.lineWidth = 12;
     this.ctx.stroke();
     this.ctx.closePath();
@@ -392,7 +392,7 @@ class PipeLine {
                     this.renderY(260, 138, 160).then(res => {
                       this.ctx.closePath();
                       this.ctx.restore();
-                      this.renderDoubleIcon(260, 190, 20, "#ec4b4b");
+                      this.renderDoubleIcon(260, 190, 20, '#ec4b4b');
                     });
                   });
                 });

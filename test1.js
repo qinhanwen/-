@@ -1,4 +1,3 @@
-options.optimization.removeAvailableModules = true;
-options.optimization.namedModules = false;
-options.optimization.namedChunks = false;
-options.optimization.nodeEnv = 'none';
+module.exports = async function(params) {
+  console.log(1);
+};

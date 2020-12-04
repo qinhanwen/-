@@ -1,2 +1,7 @@
-function axios() {}
-export default axios;
+class BetterScroll {
+  constructor() {}
+  fn() {}
+}
+
+const bs = new BetterScroll();
+bs.fn();

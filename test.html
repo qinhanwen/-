@@ -5,20 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
-    <img src="http://qinhw/123.png" alt="" />
-  </body>
-
+  <body></body>
   <script>
-    window.onerror = function(msg, _url, line, col, error) {
-      console.warn(' window.onerror: ', msg, _url, line, col, error);
-    };
-    window.addEventListener(
-      'error',
-      function(e) {
-        console.log(e);
-      },
-      true
-    );
+    const element = document.getElementById('some-element-you-want-to-animate');
+    let start;
+
+    function step(timestamp) {
+      console.log('call step');
+      while (true) {}
+      // 在两秒后停止动画
+      window.requestAnimationFrame(step);
+    }
+
+    window.requestAnimationFrame(step);
   </script>
 </html>
