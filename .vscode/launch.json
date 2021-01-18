@@ -9,9 +9,9 @@
       "request": "launch",
       "name": "启动程序",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/export-word/word", // 执行目录
+      "program": "${workspaceFolder}/test.js", // 执行目录
       "autoAttachChildProcesses": true, // 调试子进程
-      "args": ["my-app"] // 环境参数
+      "args": [] // 环境参数
     }
   ]
 }
